@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:site_name" content="Sammy Luo">
+  <title>18.226 Probabilistic Methods in Combinatorics </title>
+  <meta property="og:title" content="18.226 Probabilistic Methods in Combinatorics ">
+  
+  <meta name="description" content="18.226 Probabilistic Methods in Combinatorics. Dr. Sammy Luo"> 
+  <meta property="og:description" content="18.226 Probabilistic Methods in Combinatorics. Dr. Sammy Luo">
+  
+  <meta name="author" content="Sammy Luo">
+  
+  <!-- <meta name="twitter:card" content="summary"> -->
+  
+  <meta property="og:type" content="website">
+  
+  
+  <link rel="shortcut icon" href="https://sammy-luo.github.io/favicon.ico"> 
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="index_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0J6WSWZ2JM');
+</script>
+
+<link href="index_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="index_files/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script><script src="index_files/page-script.js" id="bw-fido2-page-script"></script>
+
+  <link rel="stylesheet" type="text/css" href="index_files/tufte.css" media="all">
+
+  <link href="index_files/css.css" rel="stylesheet" type="text/css">
+
+  <link rel="canonical" href="https://sammy-luo.github.io/pm/">
+  <meta property="og:url" content="https://sammy-luo.github.io/pm/">
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			renderMathInElement(document.body, {
+			  // customised options
+			  // • auto-render specific keys, e.g.:
+			  delimiters: [
+				  {left: '$$', right: '$$', display: true},
+				  {left: '$', right: '$', display: false},
+			  ],
+			  // • rendering keys, e.g.:
+			  throwOnError : false
+			});
+		});
+	</script>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  
+</style></head>
+  <body><div id="MathJax_Message" style="display: none;"></div>
+    <div class="container-fluid">
+    <header>
+      <nav class="group">
+      </nav>
+    </header>
+    <article class="group">
+	<div id="watermelon"> $\mathbb{P}(🍉)>0$ </div>
+
+      <h1 id="18226-probabilistic-methods-in-combinatorics">18.226 Probabilistic Methods in Combinatorics</h1>
+
+
+
+<p><strong>Fall 2024, MIT</strong></p>
+
+
+<p><a href="https://sammy-luo.github.io/pm/probmethod_notes.pdf">[Lecture notes]</a>
+<a href="https://sammy-luo.github.io/pm/pm-ps.pdf">[Problem set]</a></p>
+
+<p><strong>Class meetings:</strong> Mondays and Wednesdays 2:30–4pm, room 36-144</p>
+
+<p><em>(First class Wednesday September 4)</em></p>
+
+<p><strong>Instructor:</strong> <a href="http://sammy-luo.github.io/">Sammy Luo</a></p>
+
+<p><strong>Graders:</strong> TBA</p>
+
+<p><strong>Email policy</strong></p>
+<ul>
+  <li>My policy is to not answer by email any math questions related to 
+the class, due to time constraints and also the fact that emails are not a great 
+medium for such Q&amp;As (ask them during office hours instead).</li>
+  <!-- <li>Clarification questions (about homework or lectures) should be asked on <strong>Piazza</strong>
+ (link in Canvas), as they may benefit the rest of the class. The same 
+goes for other discussions of general interest. Do not discuss hints or 
+solutions to homework problems on Piazza until after the due date.</li> -->
+  <li>Email the graders and cc me for anything homework-related  (submission, extensions, grading, etc.)</li>
+  <li>Begin your email subject line with “[18.226]”</li>
+</ul>
+
+<p><strong>Office hours</strong></p>
+<ul>
+  <li>I will stay around after class to answer questions – we may move to the math common room (2-290).</li>
+  <li>I plan to also schedule ad-hoc office hours for each problem set. Stay tuned for Canvas announcements.</li>
+  <li>You may ask me about unstarred problems (but not starred ones) during office hours.</li>
+  <li>I will ask you to first explain on the board the progress you have made so far.</li>
+</ul>
+
+<h2 id="course-description-and-policies">Course description and policies</h2>
+
+<p>A graduate-level introduction to the probabilistic method, a 
+fundamental and powerful technique in combinatorics and theoretical 
+computer science. The essence of the approach is the following: to show 
+that some combinatorial object exists, we prove that a certain random 
+construction works with positive probability. The course will focus on 
+methodology as well as combinatorial applications.</p>
+
+<p>Topics:</p>
+<ul>
+  <li><a href="https://sammy-luo.github.io/pm/1.pdf">Introduction</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/2.pdf">Linearity of expectations</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/3.pdf">Alterations</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/4.pdf">Second moment</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/5.pdf">Chernoff bound</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/6.pdf">Lovász local lemma</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/7.pdf">Correlation inequalities</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/8.pdf">Janson inequalities</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/9.pdf">Concentration of measure</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/10.pdf">Entropy</a></li>
+  <li><a href="https://sammy-luo.github.io/pm/11.pdf">Container</a></li>
+</ul>
+
+<p><em>Textbook:</em> Alon and Spencer, <a href="https://www.amazon.com/Probabilistic-Method-Discrete-Mathematics-Optimization/dp/1119061954/ref=dp_ob_title_bk">The probabilistic method</a>, Wiley (the latest edition is 4th, but earlier editions suffice). Available electronically from MIT Libraries.</p>
+
+<p>We will be closely following Prof. Yufei Zhao's <a href="https://sammy-luo.github.io/pm/probmethod_notes.pdf">lecture notes</a>.</p>
+
+<p><em>Prerequisites:</em> Mathematical maturity at the level of a first-year math graduate student.
+Comfort with combinatorics (18.211), probability (18.600), and real analysis (18.100).</p>
+
+<p><em>Grading:</em> Primarily based on homework grades (no exams). 
+A modifier up to 5 percentage points may be applied (in either 
+direction) in calculating the final grade, at my discretion based on 
+factors such as participation.</p>
+
+<p>Final letter grade cutoffs: Only non-starred problems are considered for the calculations of letter grades other than A and A+.</p>
+
+<ul>
+  <li>A− : ≥ 85%</li>
+  <li>B− : ≥ 70%</li>
+  <li>C− : ≥ 50%</li>
+</ul>
+
+<p>Grades of A and A+ are awarded at my discretion based on overall 
+performance.
+Solving a significant number of starred problems is a requirement for 
+grades of A and A+ (roughly half of the problems for an A, and 2/3 for an A+, up to adjustments for the difficulty of individual problems).</p>
+
+<p>Note that for MIT students, ± grade modifiers do not count towards the GPA and do not appear on the external transcript.</p>
+
+<p>If you wish to attend lectures, please register as for credit or listener.</p>
+
+<p>Students needing support should consider reaching out to <a href="https://studentlife.mit.edu/s3">Student Support Services (S<sup>3</sup>)</a>, <a href="https://oge.mit.edu/development/gradsupport/">GradSupport</a>, or <a href="https://studentlife.mit.edu/das">Student Disability Services</a>.</p>
+
+<h3 id="lectures">Lectures</h3>
+
+<p><a href="https://sammy-luo.github.io/pm/probmethod_notes.pdf">[Lecture notes]</a></p>
+
+<ul>
+  <li>9/4 Introduction</li>
+  <li>9/9 Introduction</li>
+  <li>9/11 Linearity of expectations</li>
+  <li>9/16 Linearity of expectations</li>
+  <li>9/18 Alterations</li>
+  <li>9/23 Second moment</li>
+  <li>9/25 Thresholds</li>
+  <li>9/30 Second moment</li>
+  <li>10/2 Chernoff bound</li>
+  <li>10/7 Lovász local lemma</li>
+  <li>10/9 Lovász local lemma</li>
+  <li><em>10/14 Holiday (Indigenous Peoples' Day). No class</em></li>
+  <li>10/16 Lovász local lemma</li>
+  <li>10/21 Lovász local lemma</li>
+  <li>10/23 Correlation inequalities</li>
+  <li>10/28 Janson inequalities</li>
+  <li>10/30 Janson inequalities</li>
+  <li>11/4 Concentration of measure</li>
+  <li>11/6 Concentration of measure</li>
+  <li><em>11/11 Holiday (Veterans Day). No class</em></li>
+  <li>11/13 Concentration of measure</li>
+  <li>11/18 Concentration of measure</li>
+  <li>11/20 Concentration of measure</li>
+  <li>11/25 Concentration of measure</li>
+  <li><em>11/27 Class canceled</em></li>
+  <li>12/2 Entropy method</li>
+  <li>12/4 Entropy method</li>
+  <li>12/9 Entropy method</li>
+  <li>12/11 Container method</li>
+</ul>
+
+<h2 id="homework">Homework</h2>
+
+<p><a href="https://sammy-luo.github.io/pm/pm-ps.pdf">Problem set</a></p>
+
+<p>The problem set will be updated over the course of the semester. I will announce on Canvas when each problem set is complete.</p>
+
+<p>You should only submit the designated problems, but are encouraged to try the rest as well.</p>
+
+<p>Starred problems are generally more challenging.</p>
+
+<p>To get the most out of this course, you are expected to spend a significant amount of time solving these problems.
+It will be essential to start thinking about these problems early.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Problem set</th>
+      <th style="text-align: center">Due date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">PS 1</td>
+      <td style="text-align: center">Sun Sep 22</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PS 2</td>
+      <td style="text-align: center">Sun Oct 6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PS 3</td>
+      <td style="text-align: center">Sun Oct 20</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PS 4</td>
+      <td style="text-align: center">Sun Nov 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PS 5</td>
+      <td style="text-align: center">Sun Nov 17</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">PS 6</td>
+      <td style="text-align: center">Sun Dec 8</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Starred problems</strong> on each problem set should be 
+submitted separately, with an automatic 7-day extension without penalty 
+(and no additional lateness permitted).</p>
+
+<h3 id="submissions">Submissions</h3>
+
+<ul>
+  <li>Must be typed in LaTeX and submitted as PDF on Gradescope (accessed from Canvas).</li>
+  <li>Due time: <strong>11:59pm of each due date</strong></li>
+  <li>Begin each solution on a new page</li>
+  <li>Select the pages for each problem on Gradescope (or else they will not be graded)</li>
+  <li>Each box on the left-margin of the problem set PDF indicates a single problem worth 10 points</li>
+  <li>Regrade requests should be submitted on Gradescope within one week of the grades being published</li>
+</ul>
+
+<h3 id="late-policy">Late policy</h3>
+
+<ul>
+  <li><strong>Penalty.</strong> Late submissions will be penalized by 20% per each late day (24-hour increments, without fractional accounting).
+    <ul>
+      <li>Example: for an assignment due on Sunday, a submission worth <em>x</em> points if turned in on time will be worth 0.6<em>x</em> points if submitted on Tuesday.</li>
+    </ul>
+  </li>
+  <li><strong>Multiple submissions.</strong> You are allowed to submit 
+some of the problems on time and some of the problems in a separate 
+“late” batch and have the late penalty applied only to the late batch.
+    <ul>
+      <li>If you take this option, you must (1) email the graders 
+explaining which problems were submitted on time and which ones were 
+late and by how many dates, and (2) clearly indicate this information 
+also in your write-up.</li>
+      <li>Multiple submissions complicate our grading process. If you do
+ not do the above, your entire submission may receive a late penalty as 
+if all problems were submitted by the last submission time.</li>
+      <li>You are allowed to submit at most two batches (i.e., 1 ontime + 1 late batch, or 2 separate late batches)</li>
+      <li>The second batch may not contain any updates or replacement to an already submitted problem.</li>
+      <li>The final submission should include everything, with each problem’s lateness clearly marked in the PDF.</li>
+      <li>This policy is provided as a courtesy. It may be rescinded if abused.</li>
+    </ul>
+  </li>
+  <li><strong>Extensions.</strong> If you need an extension for valid excuses (e.g., unanticipated health or family issues), please email the graders and me <strong>in advance</strong> or have S3 send us a message. Let us know how many days extension you need.
+    <ul>
+      <li>My policy is to not grant extension based on forseeable 
+circumstances including academic workload, extracurriculars, and poor 
+study habits.</li>
+    </ul>
+  </li>
+  <li>If you submit your homework late, you should not discuss the 
+homework with other students who have already submitted their homework 
+until you have submitted yourself.</li>
+</ul>
+
+<h3 id="collaborations">Collaborations</h3>
+
+<ul>
+  <li>You are encouraged to first work on the homework problems independently before seeking collaboration.</li>
+  <li>Meaningful collaboration is allowed if it helps with your learning (e.g., solving a problem together)</li>
+  <li>Unacceptable practices include: “dividing up” the problems among a
+ group and then distributing the solutions; asking for a solution from a
+ friend.</li>
+  <li>You must write up your own solutions.</li>
+  <li><a href="https://psetpartners.mit.edu/">Pset partners</a> — a tool for finding problem set collaborators (MIT Touchstone required)</li>
+</ul>
+
+<h3 id="acknowledging-collaborators-and-sources">Acknowledging collaborators and sources</h3>
+
+<p>It is required to acknowledge your sources (even if you worked independently)</p>
+
+<ul>
+  <li>At the beginning of the submission for <strong>each problem</strong>, write <code class="language-plaintext highlighter-rouge">Collaborators and sources:</code> followed by a list of collaborators and sources consulted (people, books, papers, websites, software, etc.), or write <code class="language-plaintext highlighter-rouge">none</code> if you did not use any such resources.</li>
+  <li>Failure to acknowledge will result in an automatic 1pt penalty per problem.</li>
+  <li>Acceptable uses of resources include: looking up a standard 
+theorem/formula/technique; using Wolfram Alpha/Mathematica/Python for a 
+calculation (no need to mention lecture notes or textbook)</li>
+  <li>Unacceptable uses of resources include: directly looking up the problem online or in the research literature for a solution.
+(Once you have solved a problem, it is fine to seek and learn alternate solutions.)</li>
+</ul>
+
+<p>Intentional violations of the above policies may be considered academic dishonesty/misconduct.</p>
+
+<h3 id="additional-resources">Additional resources</h3>
+
+<ul>
+  <li><a href="https://math.mit.edu/combin/">Richard P. Stanley Seminar in Combinatorics</a>
+ – research seminar covering recent research results by various 
+speakers. Intended for graduate students and researchers in 
+combinatorics, but all are welcome. Self-sign up for mailing list.</li>
+</ul>
+
+<p><strong>Previous version of the class taught by Prof. Yufei Zhao:</strong>
+<a href="https://yufeizhao.com/pm/sp19/">Spring 2019</a>,
+<a href="https://yufeizhao.com/pm/fa20/">Fall 2020</a>,
+<a href="https://yufeizhao.com/pm/">Fall 2022</a>.</p>
+
+    </article>
+    <footer>
+  <hr class="slender">
+</footer>
+
+    </div>
+  
+
+</body></html>
